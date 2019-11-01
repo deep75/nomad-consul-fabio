@@ -1,6 +1,6 @@
 # nomad-in-a-box
 
-# how to use (from https://github.com/kikitux/nomad-in-a-box/ )
+### how to use (from https://github.com/kikitux/nomad-in-a-box/ )
 
 ## deploy in a fresh Ubuntu 18.04 VM
 ```
