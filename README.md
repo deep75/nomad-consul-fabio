@@ -11,9 +11,9 @@ Vault root token is `changeme`
 
 Then you can reach the services at
 
-- consul http://<IP of VM>:8500
-- nomad http://<IP of VM>:4646
-- vault http://<IP of VM>:8200
+- consul http://IP:8500
+- nomad http://IP:4646
+- vault http://IP:8200
 
 
 ### vault
