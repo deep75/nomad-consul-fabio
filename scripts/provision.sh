@@ -3,35 +3,18 @@
 ## BEGIN of customization
 
 # versions
-CONSUL=1.4.2
-CONSUL_TEMPLATE=0.20.0
-NOMAD=0.8.7
-VAULT=1.0.3
-
-## END of customization
-
-# if we are in a vagrant box, lets cd into /vagrant
-[ -d /vagrant ] && pushd /vagrant
+CONSUL=1.6.1
+CONSUL_TEMPLATE=0.22.0
+NOMAD=0.10.0
+VAULT=1.2.3
 
 # arch
-if [[ "`uname -m`" =~ "arm" ]]; then
-  ARCH=arm
-else
-  ARCH=amd64
-fi
-
-# install and configure lxd
-which lxd &>/dev/null || {
-  export DEBIAN_FRONTEND=noninteractive
-  apt-get update
-  apt-get install -t bionic-backports -y lxd
-  lxd init --preseed < conf/lxd_init.yml
-}
+ARCH=amd64
 
 # create base container
 s=base
 lxc info ${s} &>/dev/null || {
-  lxc launch ubuntu:xenial ${s} -c security.nesting=true
+  lxc launch ubuntu:bionic ${s} -c security.nesting=true
   echo sleeping so ${s} can boot properly
   sleep 8
   mkdir -p /var/lib/lxd/containers/${s}/rootfs/etc/dpkg/dpkg.cfg.d/
